@@ -3,9 +3,10 @@ body {
 	text-align: center;
 	color: #ffffff;
 }
-nav ul li {
-	list-style: none;
+nav ul li, nav ul li a {
 	color: #ffffff;
+	text-decoration: none;
+	list-style: none;
 }
 
 textarea {
@@ -14,31 +15,98 @@ textarea {
 
 /* HÄR BÖRJAR DIVS */
 
-.summaryForm {
-	border: 1px solid red;
+.searchbar {
+	float: left;
+	display: inline-block;
 }
 
-.navigation, .navigation a{
-	border: 1px solid red;
+.navigation{
 	text-align: left;
-	height: 100%;
-	width: 20%;
+	height: 90%;
+	width: 15%;
 	color: #ffffff;
 	background: #f78d19;
-	
+	display: inline-block;
+	float:left;
+	border: 1px solid #ffffff;
 }
 
-.courses nav, .summaries {
-	text-decoration: none;
+.navigation > ul > a > li {
+	border: 1px solid #ffffff;
+	height: 32%;
+	text-align: center;
+	width: 100%;
+}
+
+.navigation > ul > a {
+	float: left;
+}
+
+.courses {
+	width: 15%;
+	height: 90%;
+	display: inline-block;
+	float: left;
+	padding-top: -10px;
+	padding-left: 0.5%;
+	margin-left: 0.5%;
+	border: 1px solid #ffffff;
+}  
+
+.courses ul {
+	list-style: none;
 	text-align: left;
-	border: 1px solid black;
 	height: auto;
 	width: 20%;
 	display: inline;
 }
 
-.summarycount, .coursescount {
-	border: 1px solid black;
-	display: block;
+.courses li {
+	color: #000000;
+	background: #d1d1d1;
+	list-style: none;
+	text-decoration: none;
+}
+
+.courses > ul > a  {
+	list-style: none;
+	text-decoration: none; 
+}
+
+.coursecontent {
+	border: 1px solid #ffffff;
+	margin-top: 2px;
+	height: 40%;
+	width: 85%;
+}
+
+.summaries {
+	float: right;
+	width: 65%;
+}
+
+.summarycount, .coursescount{
 	float: left;
+	margin-left: 15%;
+	margin-top: 10%;
+	padding: 1%;
+	text-align: center;
+	background-color: #d1d1d1;
+	color: #000000;
+	
+}
+
+.searchresult {
+	border: 1px solid red;
+	width: 50%;
+	margin: auto;
+}
+
+.header {
+	width: 90%;
+}
+
+.summaryForm {
+	border: 1px solid red;
+	display: block;
 }
