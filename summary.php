@@ -1,27 +1,30 @@
 <!DOCTYPE html!>
+
 <html>
 <head>
-	<title> Index </title>
+	<title> Sammanfattningar </title>
 		<meta http-equiv="content-Type" content="Text/html;charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
-
+	<div class="searchbar">
+		<form action="search.php" method="GET">
+			<input type="text" name="query" placeholder="Sök här!"/>
+			<input type="submit" value="Sök" />
+		</form>
+	</div>
 </head>
 <body>
 
 <div class="header">
 	<h1> Sammanfattningar </h1>
-	<hr />
 </div>
 
 	<nav class="navigation">
 		<ul>
-			<li><a href="index.php"> Startsida </a></li>
-			<li><a href="courses.php"> Kurser </a></li>
-			<li><a href="summary.php"> Sammanfattningar </a></li>
+			<a href="index.php"><li> Startsida </li></a>
+			<a href="courses.php"><li> Kurser </li></a>
+			<a href="summary.php"><li> Sammanfattningar </li></a>
 		</ul>
 	</nav>
-	
-	<hr />
 	
 <?php
 	// värden för pdo
@@ -36,7 +39,7 @@
 	$pdo = new PDO($dsn, $username, $password, $attr);
 ?>
 	
-	<div class="summaryForm">
+	
 	<?php 
 	// Skrivit något i textfältet? Posta till databasen
 		if(!empty($_POST))	
@@ -69,8 +72,6 @@
 	<input type="text" name="title" placeholder="Skriv din titel här!">
 	<input type="submit" value="Post" />
 	</form>
-	<hr />
-	</div>
 
 </body>
 </html>

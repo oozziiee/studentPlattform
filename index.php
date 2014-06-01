@@ -1,22 +1,27 @@
 <!DOCTYPE html!>
+
 <html>
 <head>
 	<title> Index </title>
 		<meta http-equiv="content-Type" content="Text/html;charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
-
+	<div class="searchbar">
+		<form action="search.php" method="GET">
+			<input type="text" name="query" placeholder="Sök här!"/>
+			<input type="submit" value="Sök" />
+		</form>
+	</div>
 </head>
 <body>
 
 <div class="header">
 	<h1> Startsida </h1>
 </div>
-<hr />
 	<nav class="navigation">
 		<ul>
-			<li><a href="index.php"> Startsida </a></li>
-			<li><a href="courses.php"> Kurser </a></li>
-			<li><a href="summary.php"> Sammanfattningar </a></li>
+			<a href="index.php"><li> Startsida </li></a>
+			<a href="courses.php"><li> Kurser </li></a>
+			<a href="summary.php"><li> Sammanfattningar </li></a>
 		</ul>
 	</nav>
 	
@@ -58,13 +63,5 @@
 		echo '</div>';
 	?>
 	</div>
-	<footer>
-		<div class="searchform">
-		<form action="search.php" method="GET">
-			<input type="text" name="query" placeholder="Sök här!"/>
-			<input type="submit" value="Sök" />
-		</form>
-		</div>
-	</footer>
 </body>
 </html>

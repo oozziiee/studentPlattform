@@ -1,10 +1,17 @@
 <!DOCTYPE html!>
+
 <html>
 <head>
-	<title> Index </title>
+	<title> Kurser </title>
 		<meta http-equiv="content-Type" content="Text/html;charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
-
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<div class="searchbar">
+		<form action="search.php" method="GET">
+			<input type="text" name="query" placeholder="Sök här!"/>
+			<input type="submit" value="Sök" />
+		</form>
+	</div>
 </head>
 <body>
 
@@ -12,28 +19,13 @@
 	<h1> Kurser </h1>
 </div>
 
-	<hr />
-
 	<nav class="navigation">
 		<ul>
-			<li><a href="index.php"> Startsida </a></li>
-			<li><a href="courses.php"> Kurser </a></li>
-			<li><a href="summary.php"> Sammanfattningar </a></li>
+			<a href="index.php"><li> Startsida </li></a>
+			<a href="courses.php"><li> Kurser </li></a>
+			<a href="summary.php"><li> Sammanfattningar </li></a>
 		</ul>
-	</nav>
-	
-	<hr />
-	
-	<div class="searchform">
-	<form action="search.php" method="GET">
-		<input type="text" name="query" placeholder="Sök här!"/>
-		<input type="submit" value="Sök" />
-	</form>
-	</div>
-	
-	
-	<div class="courses">
-	<nav>
+	</nav> 
 	
 	<?php
 		// Värden för pdo
@@ -46,16 +38,16 @@
 
 		// Skapa pdo
 		$pdo = new PDO($dsn, $username, $password, $attr);
-
+		
+		//Skriva ut alla kurser
+		echo '<div class="courses" style="overflow-y:scroll">';
 		echo "<ul>";
 			foreach ($pdo->query("SELECT id, coursename FROM courses ORDER BY coursename") as $row) {
-				echo "<li><a href=\"?courses_id={$row['id']}\">{$row['coursename']}</a></li>";
+				echo "<a href=\"?courses_id={$row['id']}\"><li></br>{$row['coursename']}</li></a>";
 			}
 		echo "</ul>";
-
+		echo '</div>';
 	?>
-	
-	</div>
 	
 	<div class="summaries">
 	<?php
@@ -67,12 +59,15 @@
 		
 		foreach($pdo->query("SELECT summary.*, courses.id FROM summary JOIN courses ON summary.courses_id=courses.id WHERE summary.courses_id=$courses_id") as $row)
 		{
-			echo "<p> <h4> Skriven: </h4> {$row['date']} </br> <h4> Titel: </h4> {$row['title']} </br> <h4> Sammanfattning: </h4> {$row['content']} <hr />";
+			echo '<div class="coursecontent" style="overflow-y:scroll" cols ="40" rows="10">';
+			echo "<p> <h4> Skriven: </h4> {$row['date']} </br> <h4> Titel: </h4> {$row['title']} </br> <h4> Sammanfattning: </h4> {$row['content']} ";
+			echo '</div>';
 		}
 	}
 	?>
 	</div>
 	</nav>
-	<hr />
+	
+	
 </body>
 </html>
