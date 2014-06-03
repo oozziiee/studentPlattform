@@ -43,7 +43,11 @@
 		echo '<div class="courses" style="overflow-y:scroll">';
 		echo "<ul>";
 			foreach ($pdo->query("SELECT id, coursename FROM courses ORDER BY coursename") as $row) {
-				echo "<a href=\"?courses_id={$row['id']}\"><li></br>{$row['coursename']}</li></a>";
+				$statement = $pdo->prepare('SELECT count(*) FROM summary WHERE courses_id = :sid');
+				$statement->bindParam(':sid', $row['id'], PDO::PARAM_INT);
+				$statement->execute();
+				$numsummaries = $statement->fetchColumn();		
+				echo "<a href=\"?courses_id={$row['id']}\"><li></br>{$row['coursename']} - {$numsummaries} st.</li></a>";
 			}
 		echo "</ul>";
 		echo '</div>';
