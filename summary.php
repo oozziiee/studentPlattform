@@ -5,6 +5,8 @@
 	<title> Sammanfattningar </title>
 		<meta http-equiv="content-Type" content="Text/html;charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+		
+	<!-- sök fönster -->
 	<div class="searchbar">
 		<form action="search.php" method="GET">
 			<input type="text" name="query" placeholder="Sök här!"/>
@@ -17,7 +19,7 @@
 <div class="header">
 	<h1> Sammanfattningar </h1>
 </div>
-
+	<!-- sidomeny -->
 	<nav class="navigation">
 		<ul>
 			<a href="index.php"><li><p> Startsida</p> </li></a>
@@ -41,7 +43,7 @@
 	
 	
 	<?php 
-	// Skrivit något i textfältet? Posta till databasen
+	// Skrivit något i textfältet? Posta det till databasen
 		if(!empty($_POST))	
 		{
 			$_POST = null;
@@ -64,11 +66,12 @@
 		<select class="summary_select" name="courses_id" value="$courses_id">
 		
 		<?php
+			// dropdown med alla kurser
 			foreach ($pdo->query("SELECT * FROM courses ORDER BY coursename") as $row) {
 				echo "<option value=\"{$row['id']}\">{$row['coursename']}</option>";
 			}	
 		?>	
-		
+		<!-- textare + psot knapp -->
 		<textarea class="summary_text" name="summary" value="$summary" rows="10" cols="50" placeholder="Skriv din sammanfattning här!" ></textarea>
 		<input type="submit" value="Post" />
 		</form>

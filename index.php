@@ -5,6 +5,8 @@
 	<title> Index </title>
 		<meta http-equiv="content-Type" content="Text/html;charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+		
+	<!-- sök fönster -->
 	<div class="searchbar">
 		<form action="search.php" method="GET">
 			<input type="text" name="query" placeholder="Sök här!"/>
@@ -17,6 +19,7 @@
 <div class="header">
 	<h1> Startsida </h1>
 </div>
+	<!-- sidomeny -->
 	<nav class="navigation">
 		<ul>
 			<a href="index.php"><li><p> Startsida </p></li></a>
@@ -33,8 +36,6 @@
 	$password = "12345";
 	$dsn      = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
 	$attr     = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC);
-
-	"<div class=\"resultat\">";
 	
 	// skapa pdo
 	$pdo = new PDO($dsn, $username, $password, $attr);

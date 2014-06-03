@@ -5,6 +5,8 @@
 	<title> Sökresultat </title>
 		<meta http-equiv="content-Type" content="Text/html;charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+	
+	<!-- sök fönster -->
 	<div class="searchbar">
 		<form action="search.php" method="GET">
 			<input type="text" name="query" placeholder="Sök här!"/>

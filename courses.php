@@ -6,6 +6,8 @@
 		<meta http-equiv="content-Type" content="Text/html;charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		
+	<!-- sök fönster -->
 	<div class="searchbar">
 		<form action="search.php" method="GET">
 			<input type="text" name="query" placeholder="Sök här!"/>
@@ -20,6 +22,7 @@
 </div>
 
 	<nav class="navigation">
+	<!-- sidomeny -->
 		<ul>
 			<a href="index.php"><li><p> Startsida</p> </li></a> <br>
 			<a href="courses.php"><li><p> Kurser </p></li></a> <br>
@@ -71,7 +74,5 @@
 	?>
 	</div>
 	</nav>
-	
-	
 </body>
 </html>
