@@ -19,9 +19,9 @@
 </div>
 	<nav class="navigation">
 		<ul>
-			<a href="index.php"><li> Startsida </li></a>
-			<a href="courses.php"><li> Kurser </li></a>
-			<a href="summary.php"><li> Sammanfattningar </li></a>
+			<a href="index.php"><li><p> Startsida </p></li></a>
+			<a href="courses.php"><li><p> Kurser </p> </li></a>
+			<a href="summary.php"><li><p> Sammanfattningar</p> </li></a>
 		</ul>
 	</nav>
 	

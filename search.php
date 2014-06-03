@@ -17,39 +17,38 @@
 <div class="header">
 	<h1> Sökresultat </h1>
 </div>
-
 	<nav class="navigation">
 		<ul>
-			<li><a href="index.php"> Startsida </a></li>
-			<li><a href="courses.php"> Kurser </a></li>
-			<li><a href="summary.php"> Sammanfattningar </a></li>
+			<a href="index.php"><li><p> Startsida</p> </li></a>
+			<a href="courses.php"><li><p> Kurser</p> </li></a>
+			<a href="summary.php"><li><p> Sammanfattningar</p> </li></a>
 		</ul>
-	</nav> 
+	</nav>
 
 <?php
 	mysql_connect("localhost", "root", "") or die("Error connecting to database: ".mysql_error());
 	mysql_select_db("studentplatform") or die(mysql_error());
 ?>
-	
-	<div class="searchresult">
 		<?php
 			$query = $_GET['query']; 
 			$min_length = 2;
-			 
 			if(strlen($query) >= $min_length){
 				 
 				$query = htmlspecialchars($query); 
 				$query = mysql_real_escape_string($query);
 				$raw_results = mysql_query("SELECT * FROM summary
 					WHERE (`content` LIKE '%".$query."%') OR (`title` LIKE '%".$query."%')")or die(mysql_error());
-				 
-				if(mysql_num_rows($raw_results) > 0){ 
+					
 				
+				if(mysql_num_rows($raw_results) > 0){ 
+					
+					
 					while($results = mysql_fetch_array($raw_results)){
-					 
+						echo '<div class="searchresult">'; 
 						echo "<p>".$results['date']." </br>".$results['title']." </br>".$results['content']." </p>";
-						// posts results gotten from database(title and text) you can also show id ($results['id'])
+						echo '</div>';
 					}
+					
 				}
 				else{
 					echo "Din sökning gav inget resultat!";
@@ -59,7 +58,7 @@
 				echo "Minimum length is ".$min_length;
 			}
 		?>
-	</div>
+	
 </body>
 </html>
 

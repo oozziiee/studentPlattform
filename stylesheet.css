@@ -21,35 +21,47 @@ textarea {
 }
 
 .navigation{
-	text-align: left;
-	height: 90%;
-	width: 15%;
+	height: 100%;
+	width:160px;
 	color: #ffffff;
-	background: #f78d19;
 	display: inline-block;
 	float:left;
-	border: 1px solid #ffffff;
 }
 
 .navigation > ul > a > li {
-	border: 1px solid #ffffff;
-	height: 32%;
-	text-align: center;
-	width: 100%;
+	vertical-align: auto;
+	height: 100%;
+	background-color: #f78d19;
+	border-bottom: 4px solid black;
+	border-top: 4px solid black;
+	
 }
 
+.navigation ul{
+	position:absolut;
+	margin:auto;
+	margin-right: 100%;
+
+}
 .navigation > ul > a {
 	float: left;
+	width: 180px;
+	height: 180px;
+	line-height: 180px;
 }
-
+.navigation ul a li p{
+	vertical-align: center;
+	text-align: center;
+	margin: auto;
+}
 .courses {
 	width: 15%;
-	height: 90%;
+	height: 87%;
 	display: inline-block;
 	float: left;
 	padding-top: -10px;
 	padding-left: 0.5%;
-	margin-left: 0.5%;
+	margin-left: 2%; /* DENNA VARIERAR FRÅN SKÄRM TILL SKÄRM, SER BRA UT MED SKOLDATOR UPPLÖSNING (1366 x 768)*/
 	border: 1px solid #ffffff;
 }  
 
@@ -73,16 +85,26 @@ textarea {
 	text-decoration: none; 
 }
 
-.coursecontent {
+.coursecontent{
 	border: 1px solid #ffffff;
 	margin-top: 2px;
 	height: 40%;
 	width: 85%;
 }
 
+.searchresult {
+	border: 1px solid #ffffff;
+	width: 60%;
+	height: 20%;
+	float: left;
+	margin-left: 11%;
+	margin-top: 0.5%;
+}
+
 .summaries {
-	float: right;
-	width: 65%;
+	float: left;
+	width: 63%;
+	margin-left: 7%;
 }
 
 .summarycount, .coursescount{
@@ -93,13 +115,6 @@ textarea {
 	text-align: center;
 	background-color: #d1d1d1;
 	color: #000000;
-	
-}
-
-.searchresult {
-	border: 1px solid red;
-	width: 50%;
-	margin: auto;
 }
 
 .header {
@@ -109,4 +124,23 @@ textarea {
 .summaryForm {
 	border: 1px solid red;
 	display: block;
+}
+
+.summary_input{
+	width: 500px;
+	display:inline-block;
+	margin:auto;
+}
+.summary_title{
+	width:400px;
+	float:left;
+}
+
+.summary_select{
+	width:400px;
+	float:left;
+}
+.summary_text{
+	width: 400px;
+	float:left;
 }

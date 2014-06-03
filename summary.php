@@ -20,9 +20,9 @@
 
 	<nav class="navigation">
 		<ul>
-			<a href="index.php"><li> Startsida </li></a>
-			<a href="courses.php"><li> Kurser </li></a>
-			<a href="summary.php"><li> Sammanfattningar </li></a>
+			<a href="index.php"><li><p> Startsida</p> </li></a>
+			<a href="courses.php"><li><p> Kurser</p> </li></a>
+			<a href="summary.php"><li><p> Sammanfattningar</p> </li></a>
 		</ul>
 	</nav>
 	
@@ -57,21 +57,22 @@
 	?> 
 	
 	<!-- Gör textfält + Dropdown med alla kurser -->
-	
-	<h3>Skriv ny sammanfattning</h3>
-	<form action="summary.php" method="POST">
-	<select name="courses_id" value="$courses_id">
-	
-	<?php
-		foreach ($pdo->query("SELECT * FROM courses ORDER BY coursename") as $row) {
-			echo "<option value=\"{$row['id']}\">{$row['coursename']}</option>";
-		}	
-	?>	
-	
-	<textarea name="summary" value="$summary" rows="10" cols="50" placeholder="Skriv din sammanfattning här!" ></textarea>
-	<input type="text" name="title" placeholder="Skriv din titel här!">
-	<input type="submit" value="Post" />
-	</form>
+	<div class="summary_input">
+		<h3>Skriv ny sammanfattning</h3>
+		<form  action="summary.php" method="POST">
+		<input class="summary_title" type="text" name="title" placeholder="Skriv din titel här!">
+		<select class="summary_select" name="courses_id" value="$courses_id">
+		
+		<?php
+			foreach ($pdo->query("SELECT * FROM courses ORDER BY coursename") as $row) {
+				echo "<option value=\"{$row['id']}\">{$row['coursename']}</option>";
+			}	
+		?>	
+		
+		<textarea class="summary_text" name="summary" value="$summary" rows="10" cols="50" placeholder="Skriv din sammanfattning här!" ></textarea>
+		<input type="submit" value="Post" />
+		</form>
+	</div>	
 
 </body>
 </html>
